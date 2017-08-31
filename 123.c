@@ -6,11 +6,15 @@
 int plus(int a, int b){
     return a + b;
 }
+int minus(int a, int b){
+    return a - b;
+}
 main() {
     int a, b;
     printf("Nhap vao so a: ");
     scanf("%d", &a);
     printf("Nhap vao so b: ");
     scanf("%d", &b);
-    printf("Tong hai so: %d", plus(a, b));
+    printf("Tong hai so:/n %d", plus(a, b));
+    printf("Hieu hai so:/n %d", minus(a, b));
 }
