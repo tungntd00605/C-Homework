@@ -17,4 +17,5 @@ main() {
     scanf("%d", &b);
     printf("Tong hai so: %d\n", plus(a, b));
     printf("Hieu hai so: %d\n", minus(a, b));
+    return 0;
 }
