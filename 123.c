@@ -15,6 +15,6 @@ main() {
     scanf("%d", &a);
     printf("Nhap vao so b: ");
     scanf("%d", &b);
-    printf("Tong hai so:/n %d", plus(a, b));
-    printf("Hieu hai so:/n %d", minus(a, b));
+    printf("Tong hai so: %d\n", plus(a, b));
+    printf("Hieu hai so: %d\n", minus(a, b));
 }
