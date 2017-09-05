@@ -40,17 +40,13 @@ int inputb(){
     }
     return b;
 }
-// Nhập số yêu cầu chọn hành động
+//Nhập số yêu cầu chọn hành động
 int inputx() {
     int x;
-    scanf("%c", &x);
-    // xét nếu x có phải là chữ và x ngoài khoảng 1-5
-    if (!isdigit(x)){
-        printf("This is not a number please try again");
-        scanf("%d", &x);
-    }
-    if(x < 1 && x > 5){
-        printf("This is not a correct command please try again");
+    scanf("%d", &x);
+    // xét nếu x ngoài khoảng 1-5
+    if(x > 5 || x < 1){
+        printf("\nThis isn't a correct command, please try a gain");
         scanf("%d", &x);
     }
     return x;
@@ -58,22 +54,28 @@ int inputx() {
 
 int main() {
     int x, a, b;
-    a = inputa();
-    b = inputb();
     printmenu();
     x = inputx();
     while(x != 5){
         switch(x){
             case 1:
+                a = inputa();
+                b = inputb();
                 printf("Sum of total: %d\n\n", plus(a, b));
                 break;
             case 2:
+                a = inputa();
+                b = inputb();
                 printf("Difference: %d\n\n", minus(a, b));
                 break;
             case 3:
+                a = inputa();
+                b = inputb();
                 printf("Product: %d\n\n", multi(a, b));
                 break;
             case 4:
+                a = inputa();
+                b = inputb();
                 printf("Quotient: %f\n\n", division(a, b));
                 break;
             default:
