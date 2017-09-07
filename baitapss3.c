@@ -46,7 +46,7 @@ int inputx() {
     scanf("%d", &x);
     // xét nếu x ngoài khoảng 1-5
     if(x > 5 || x < 1){
-        printf("\nThis isn't a correct command, please try a gain");
+        printf("\nThis isn't a correct command, please try a gain\n");
         scanf("%d", &x);
     }
     return x;
