@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <mem.h>
+#include <stdbool.h>
 
-void printmenu() {
+     // In ra menu
+void PrintMenu() {
     printf("-----Menu-----\n");
     printf("1. Add student\n");
     printf("2. Show students profile\n");
@@ -17,15 +19,19 @@ struct Profile {
 
 void AddStudent() {
     // Add student's profile
-    printf("Enter student's name:");
-    fgets(student.name, sizeof(student.name), stdin);
-    while (strlen(student.name) < 4) {
+    bool isValidName = false;
+    while (!isValidName) {
+        printf("Enter student's name:");
         fgets(student.name, sizeof(student.name), stdin);
-        getchar();
-    }
-    while (strlen(student.name) > 15) {
-        printf("The name is too long, please enter name's length between 4-15 characters:");
-        fgets(student.name, sizeof(student.name), stdin);
+        isValidName = true;
+        int lengthName = strlen(student.name) - 1;
+        if (lengthName < 4) {
+            printf("The name is too short, please enter name's length between 4-15 characters:");
+        } else if (lengthName > 15) {
+            printf("The name is too long, please enter name's length between 4-15 characters:");
+        } else {
+            isValidName = true;
+        }
     }
     printf("Enter student's birthday");
     fgets(student.birthday, sizeof(student.birthday), stdin);
@@ -41,12 +47,13 @@ void AddStudent() {
     fclose(pf);
 }
 
-void ShowProfile(){
+    // Open file and print students profile
+void ShowProfile() {
     char buff[100];
     FILE *pf;
     pf = fopen("profile.txt", "r");
     printf("All students profile:\n");
-    while(fgets(buff, sizeof(buff), pf)){
+    while (fgets(buff, sizeof(buff), pf)) {
         printf("%s", buff);
     }
     fclose(pf);
@@ -54,7 +61,7 @@ void ShowProfile(){
 
 void main() {
     int choice;
-    printmenu();
+    PrintMenu();
     scanf("%d", &choice);
     getchar();
     if (choice > 3 || choice < 1) {
@@ -73,7 +80,7 @@ void main() {
             default:
                 printf("This is not a correct action, please try again:");
         }
-        printmenu();
+        PrintMenu();
         scanf("%d", &choice);
         getchar();
     }
