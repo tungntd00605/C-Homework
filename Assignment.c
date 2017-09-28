@@ -62,7 +62,7 @@ void main() {
     int choice;
     PrintMenu();
     scanf("%d", &choice);
-    getchar();
+    fflush(stdin);
     while (choice != 3) {
         switch (choice) {
             case 1:
@@ -76,6 +76,6 @@ void main() {
         }
         PrintMenu();
         scanf("%d", &choice);
-        getchar();
+        fflush(stdin);
     }
 }
